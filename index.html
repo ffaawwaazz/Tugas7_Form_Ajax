@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form AJAX Sederhana</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Form AJAX</h2>
+    <form id="myForm">
+      <label for="nama">Nama:</label>
+      <input type="text" name="nama" id="nama" required>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+
+      <button type="submit">Kirim</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+
+      fetch("proses.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("result").innerHTML = data;
+      })
+      .catch(error => {
+        document.getElementById("result").innerHTML = "❌ Terjadi kesalahan: " + error;
+      });
+    });
+  </script>
+</body>
+</html>
