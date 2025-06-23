@@ -1,6 +1,6 @@
 # Tugas7_Form_Ajax
 
-LiNK WEB : 
+LiNK WEB : https://ffaawwaazz.github.io/Tugas7_Form_Ajax/
 ---
 
 ## 📋 Form AJAX Sederhana
